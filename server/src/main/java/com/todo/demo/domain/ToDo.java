@@ -7,6 +7,7 @@ import java.util.UUID;
 
 @Entity
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -16,5 +17,5 @@ public class ToDo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String description;
-    private boolean isDone;
+    private boolean completed;
 }

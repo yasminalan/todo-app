@@ -11,6 +11,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/todos")
+@CrossOrigin("*")
 public class ToDoController {
 
     @Autowired
@@ -37,9 +38,9 @@ public class ToDoController {
         return toDoService.deleteToDoById(id);
     }
 
-    @PutMapping
-    public String updateToDo() {
-        return toDoService.updateToDo();
+    @PutMapping("/{id}")
+    public String updateToDo(@PathVariable("id") UUID id, @RequestParam("completed") boolean completed) {
+        return toDoService.updateToDoById(id, completed);
     }
 
 }

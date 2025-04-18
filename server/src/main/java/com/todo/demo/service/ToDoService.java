@@ -36,8 +36,13 @@ public class ToDoService {
         return "ToDo is deleted successfully!";
     }
 
-    public String updateToDo() {
-        toDoRepository.save(new ToDo(UUID.randomUUID(), "random", true));
-        return "Hello world!";
+    public String updateToDoById(UUID id, boolean completed) {
+        Optional<ToDo> toDoOptional = toDoRepository.findById(id);
+        if(toDoOptional.isPresent()){
+            ToDo todo = toDoOptional.get();
+            todo.setCompleted(completed);
+            toDoRepository.save(todo);
+        }
+        return "ToDo is updated successfully.";
     }
 }
