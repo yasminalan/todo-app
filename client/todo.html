@@ -15,13 +15,13 @@
       <h1>THINGS TO DO</h1>
     </div>
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="What needs to be done?" aria-label="Recipient's username"
-        aria-describedby="button-addon2">
-      <button class="btn btn-primary" type="button" id="button-addon2">Add</button>
+      <input id="new-todo-input" type="text" class="form-control" placeholder="What needs to be done?"
+        aria-label="Recipient's username" aria-describedby="button-addon2">
+      <button class="btn btn-primary" type="button" id="button-addon2" onclick="addNewToDo()">Add</button>
     </div>
   </div>
   <hr>
-  <div id="todo-list-container" class="container">
+  <div class="container">
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -30,18 +30,15 @@
           <th scope="col">Status</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td></td>
-          <td></td>
-        </tr>
+      <tbody id="todo-rows">
       </tbody>
     </table>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
+  <script src="./todoService.js"></script>
+  <script src="./script.js"></script>
 </body>
 
 </html>
