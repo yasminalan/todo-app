@@ -31,14 +31,16 @@ async function showToDos() {
     const currentRow = `
           <tr>
             <th scope="row">${index + 1}</th>
-            <td style="color: ${todo.completed ? 'green' : 'black'}; text-decoration: ${todo.completed ? 'line-through' : 'none'};">${todo.description}</td>
-            <td> 
-            <input type="checkbox" ${todo.completed ? 'checked' : ''}
-            onchange="toggleCompleted('${todo.id}', ${!todo.completed})"/>
-            </td>
             <td>
-            <button class="btn btn-danger btn-sm" onclick="deleteById('${todo.id}')">Delete
-            </button>
+              <div class="d-flex">
+                <p class="me-auto" style="color: ${todo.completed ? 'green' : 'black'}; text-decoration: ${todo.completed ? 'line-through' : 'none'};">${todo.description} </p>
+                <div class="d-flex gap-4">
+                  <input id="btn-${todo.id}" type="checkbox" class="btn-check" ${todo.completed ? 'checked' : ''}
+                  onchange="toggleCompleted('${todo.id}', ${!todo.completed})"/>
+                  <label class="btn btn-outline-success" for="btn-${todo.id}">${todo.completed ? 'Completed' : 'Complete'}</label>
+                  <button class="btn btn-danger btn-sm" onclick="deleteById('${todo.id}')">Delete</button>
+                </div>
+              </div>
             </td>
           </tr>
     `
