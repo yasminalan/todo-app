@@ -17,7 +17,7 @@ public class ToDoController {
     @Autowired
     private ToDoService toDoService;
 
-    @GetMapping("/:id")
+    @GetMapping("/{id}")
     public ToDo getToDo(@PathVariable UUID id) {
         return toDoService.findToDoById(id);
     }
